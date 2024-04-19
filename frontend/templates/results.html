@@ -1,0 +1,68 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+<script src="jquery.js"></script>
+{% block scripts %}{% endblock %}
+<style>
+    body {
+        margin: 0;
+        font-family: 'Sulphur Point', sans-serif;
+        font-weight: 300;
+        background-color: #5F6368;
+        background: url("https://i.redd.it/poxjharzb7481.png") no-repeat center center fixed;
+        background-size: cover;
+        }
+    </style>
+<title class="Title">BibLoaner.</title>
+{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="social">
+    <a href="https://github.com/frankuman/Swedish-housing-market-ML"><div class="go"><i class="fab fa-github"> </i>  Github</div></a>
+</div>
+<h1 class="Logo">VärderingsMaskinen</h3>
+<div class="background1">
+    <div class="shape1"></div>
+    <div class="shape1"></div>
+</div>
+<div class="container">
+
+    <div class="price-container">
+        <div class="price">
+            <h3 class="low">Lågt pris</h3>
+            <h3>{{ low_p }} SEK</h3>
+        </div>
+        <div class="price">
+            <h3 class="medium">Predicted pris</h3>
+            <h3>{{ med_p }} SEK</h3>
+        </div>
+        <div class="price">
+            <h3 class="high">Högt pris</h3>
+            <h3>{{ high_p }} SEK</h3>
+        </div>
+    </div>
+
+    <div class="user-input-container">
+        <h2>Bostaden som värderades</h2>
+        <ul class="user-input-list">
+            <li class="user-input-item"><strong>Adress:</strong> {{ adress }}</li>
+            <li class="user-input-item"><strong>Bostadstyp:</strong> {{ property_type }}</li>
+            <li class="user-input-item"><strong>Byggnadsår:</strong> {{ build_year }}</li>
+            <li class="user-input-item"><strong>Boarea:</strong> {{ living_area }}</li>
+            <li class="user-input-item"><strong>Tomtarea:</strong> {{ land_area }}</li>
+            <li class="user-input-item"><strong>Kommun:</strong> {{ county }}</li>
+            <li class="user-input-item"><strong>Ort:</strong> {{ area }}</li>
+            <li class="user-input-item"><strong>Avgift:</strong> {{ fee }}</li>
+            <li class="user-input-item"><strong>Rum:</strong> {{ rooms }}</li>
+            <li class="user-input-item"><strong>Balkong:</strong> {{ balcony }}</li>
+            <li class="user-input-item"><strong>Befolkingstäthet:</strong> {{ population_density }}</li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

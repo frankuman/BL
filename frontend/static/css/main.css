@@ -1,0 +1,298 @@
+ /* 
+I just had a project that included frontend, so i used some of that experience
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@300&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sulphur+Point&display=swap');
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  background-color: #5F6368;
+  background-color: #282837;
+  background-size: cover;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+
+}
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*
+---SIDEBAR---
+*/
+/* The side navigation menu */
+.sidebar .logo {
+  opacity: 100;
+  color: white; /* Default color for the logo */
+  text-decoration: none; /* Remove underline */
+  font-size: 2.5em; /* Set font size for the logo */
+  font-weight: 700;
+  font-style: bold;
+  font-family: 'Montserrat';
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 50px;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5); /* Add small text shadow */
+}
+
+.sidebar .logo:hover {
+  color: white; /* Change color on hover */
+}
+
+.sidebar .logo::after {
+  content: "."; /* Add a dot after "Loaner" */
+  color: #4A83F6; /* Color for the dot */
+  margin-left: 0.1em; /* Adjust spacing between "Loaner" and the dot */
+}
+
+.sidebar .logo::before {
+  content: "Bib"; /* Combine "Bib" and "Loaner" into a single text */
+  color: #4A83F6; /* Color for "Bib" */
+}
+
+.sidebar .logo::before,
+.sidebar .logo::after {
+  display: inline; /* Display "Bib" and "Loaner" inline */
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  width: 350px;
+  background-color: #282837;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  box-shadow: 1px 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: #ECECF9;
+  padding: 0px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 22px;
+  width: 300px;
+}
+
+.content {
+  margin: 0 auto;
+}
+
+.sidebar a.active,
+.sidebar a.selected:not(.logo) {
+  width: 300px;
+  border-radius: 15px;
+  background-color: #282837;
+  color: white;
+}
+/* Active/current link */
+.sidebar a.active:not(.img-link) {
+  opacity: 1;
+  width: 300px;
+  border-radius: 15px;
+  background-color: #282837;
+  color: white;
+}
+/* Links on mouse-over */
+.sidebar a:hover:not(.active, .logo) {
+  width: 300px;
+  border-radius: 15px;
+  background-color: #282837;
+  color: white;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+
+.sidebar a:hover:is(.img-link){
+  width: 300px;
+  border-radius: 15px;
+  opacity: 1;
+  background-color: #4A83F6;
+  opacity: 1 !important;
+  color: white;
+  
+}
+
+.sidebar a:selected:is(.active):not(.logo){
+  opacity: 1;
+  width: 300px;
+  height: 120%;
+  border-radius: 15px;
+  background-color: #282837;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+}
+
+.sidebar a:active:not(.logo){
+  opacity: 1;
+  background-color: #282837 !important;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+}
+
+.sidebar ul li {
+  width: 300px;
+  list-style: none;
+  align-content: center;
+}
+
+.sidebar ul li:is(.active):not(.logo) {
+  background-color: #4A83F6 !important;
+  opacity: 1 !important;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+}
+
+.sidebar ul {
+  
+  padding: 0;
+  margin: 0;
+  text-indent: 20%;
+}
+/*
+---End of SIDEBAR---
+*/
+
+/*Rest*/
+.background{
+  width: 400px;
+  height: 800px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+}
+.background .shape{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+
+
+/*
+--- Dashboard BOOK LIST---
+*/
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #282837; /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4A83F6; /* Color of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4A83F6; /* Color of the scrollbar thumb on hover */
+}
+.book-list {
+  width: 820px;
+  max-width: 820px; /* Set maximum width for the book list */
+  max-height: 800px;
+  margin-top: 10px;
+  position: absolute;
+  margin-left: 400px;
+}
+
+.book-list h2 {
+  text-align: left; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+}
+
+.book-list ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  max-height: 800px; /* Set maximum height for the book list */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+
+.book-list ul li {
+  padding: 10px 0; /* Add some vertical spacing between list items */
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
+
+/* Styling for book title (blue) */
+.book-list ul li .book-title {
+  color: #4A83F6; /* Set text color to blue */
+}
+
+/* Styling for author name (white) */
+.book-list ul li .author {
+  color: white; /* Set text color to white */
+  font-weight: 500; /* Increase font weight */
+}
+
+.book-list ul li .copies {
+  color: white;
+  padding-left: 50%;
+}
+.columncopies {
+  margin-left: 200px;
+}
+.idcolumn {
+  width: 200px;
+}
+.bookcolumn {
+  width: 400px;
+}
+/*
+--- Dashboard book wallpaper---
+*/
+.libwallpaper {
+  margin-left: 1220px;
+  width: 700px;
+  height: 1000px;
+  opacity: 0.95;
+  
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+/*--- Searchbar ---*/
+.search-bar{
+  margin-top: 10px;
+  margin-left: 00px;
+}
+.search-input{
+  text-align: center;
+  width: 600px;
+  height: 40px;
+  border: 1px solid;
+  border-color: white;
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 22px;
+  color: white;
+  border-radius: 10px;
+  outline: 1;
+  background-color: #282837;
+}
+.searchbutton {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}

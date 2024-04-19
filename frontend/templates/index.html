@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+{% block scripts %}
+
+
+{% endblock %}
+<title>BibLoaner.</title>
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="sidebar">
+    <a href="/dashboard" class="logo">Loaner</a>
+    <ul>
+        <li  class="menu active"><a href="/"><i class="fa fa-fw fa-home"></i>  Dashboard</a></li>
+        <li  class="menu "> <a  href="/lend" class="menu"><i class="fa fa-fw fa-book"></i>  Lend book</a></li>
+        <li  class="menu "> <a  href="/loggers"> <i class="fa fa-fw fa-book"></i>  Return book</a></li>
+        <li  class="menu "> <a href="https://github.com/frankuman/BibLoaner."> <i class="fa fa-github"></i> GitHub</a></li>
+
+        <li  class="menu "> <a href="/logout"> <i class="fa fa-sign-out"></i>  Quit</a></li>
+    </ul>
+</div>
+
+    
+
+
+
+
+
+<div class="book-list">
+    <div class="search-bar">
+        <input type="text" name="search" placeholder="Search Bookname, ID or Author" class="search-input" autocomplete="on"/>
+        <button type="submit" class="searchbutton">  <i class="fas fa-search"></i></button>
+    </div>
+    
+    <table>
+        <tr>
+            <td class="bookcolumn"><h2>Books</h2></td> <!-- Book title -->
+            <td class="idcolumn"><h2>ID</h2></td><br /> <!-- Number of copies -->
+
+            <td class="columncopies"><h2>Copies</h2></td><br /> <!-- Number of copies -->
+        </tr>
+    </table>
+    <ul>
+        {% for book in all_result %}
+        <li>
+            <table>
+                
+                <tr>
+                    
+                    <td class="bookcolumn"><span class="book-title">{{ book[1] }}</span></td> <!-- Book title -->
+                    <td class="idcolumn"><span class="book-title">{{ book[0] }}</span></td> <!-- Book title -->
+
+                    <td class="columncopies"><span class="copies">{{ book[3] }}</span></td><br /> <!-- Number of copies -->
+                </tr>
+                <tr>
+                    <td><span class="author">{{ book[2] }}</span></td> <!-- Author -->
+                </tr>
+            </table>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div>
+    <img class="libwallpaper" src="https://github.com/frankuman/BibLoaner./blob/main/funnypic.png?raw=true" alt="Library wallpaper">
+</div>
+
+{% endblock %}
+
