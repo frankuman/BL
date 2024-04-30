@@ -22,6 +22,7 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 <div class="sidebar">
     <a href="/dashboard" class="logo">Loaner</a>
     <ul>
@@ -33,51 +34,43 @@
         <li  class="menu "> <a href="/logout"> <i class="fa fa-sign-out"></i>  Quit</a></li>
     </ul>
 </div>
-
-    
-
-
-
-
-
-<div class="book-list">
-    <div class="search-bar">
-        <input type="text" name="search" placeholder="Search Bookname, ID or Author" class="search-input" autocomplete="on"/>
-        <button type="submit" class="searchbutton">  <i class="fas fa-search"></i></button>
-    </div>
-    
-    <table>
-        <tr>
-            <td class="bookcolumn"><h2>Books</h2></td> <!-- Book title -->
-            <td class="idcolumn"><h2>ID</h2></td><br /> <!-- Number of copies -->
-
-            <td class="columncopies"><h2>Copies</h2></td><br /> <!-- Number of copies -->
-        </tr>
-    </table>
-    <ul>
-        {% for book in all_result %}
-        <li>
-            <table>
+<form action="/lend-result" method="get">
+    <div class="lend">
+        <h class="title"> A </h>
+        <h class="idtitle">Book ID</h>
+        
+            <div class="lend-bar-id">
+                <input type="number" name="search" placeholder="Input Book ID Here" class="search-input" autocomplete="on"/>
                 
-                <tr>
-                    
-                    <td class="bookcolumn"><span class="book-title">{{ book[1] }}</span></td> <!-- Book title -->
-                    <td class="idcolumn"><span class="book-title">{{ book[0] }}</span></td> <!-- Book title -->
+            </div>
+            <h class="membertitle">Member ID</h>
+            <div class="lend-bar-id-member">
+                <input type="number" name="search" placeholder="Input Member ID Here" class="search-input" autocomplete="on"/>
+            </div>
 
-                    <td class="columncopies"><span class="copies">{{ book[3] }}</span></td><br /> <!-- Number of copies -->
-                </tr>
-                <tr>
-                    <td><span class="author">{{ book[2] }}</span></td> <!-- Author -->
-                </tr>
-            </table>
-        </li>
-    {% endfor %}
-    </ul>
-</div>
-
-<div>
-    <img class="libwallpaper" src="https://github.com/frankuman/BibLoaner./blob/main/funnypic.png?raw=true" alt="Library wallpaper">
-</div>
-
+            <h class="librarytitle">Library</h>
+            <div class="lend-box-library">
+                <div>
+                    <input class="radio-id" type="radio" id="lib_1" name="lib_tick" value="1" checked />
+                    <label for="lib_1">Library of Alexandria</label>
+                </div>
+                
+                <div>
+                    <input class="radio-id" type="radio" id="lib_2" name="lib_tick" value="2" />
+                    <label for="lib_2">The House of Wisdom</label>
+                </div>
+                
+                <div>
+                    <input class="radio-id" type="radio" id="lib_3" name="lib_tick" value="3" />
+                    <label for="lib_3">The Citadel Library</label>
+                </div>
+            </div>
+    </div>
+    <div class="hb">
+        <input type="submit" class="beeg" value="&#8627;">
+        <!-- <button type="button" class="beeg" onclick="submitForm()">&#8627;
+        </button> -->
+    </div>
+</form>
 {% endblock %}
 

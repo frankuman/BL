@@ -36,6 +36,37 @@ def start():
 def lend_book():
     return render_template('lend.html')
 
+@app.route("/lend-result", methods=["POST", "GET"])
+def catch_lend_form():
+    search_values = request.args.getlist('search')
+    lib_tick_value = request.args.get('lib_tick')
+    Book_id = search_values[0]
+    Member_id = search_values[1]
+    try:
+        session.sql(f"CALL lendBook({Member_id}, {Book_id}, {lib_tick_value}, @res);").execute()
+        result = session.sql("SELECT @res;").execute()
+        if result:
+        # Extract the value from the result
+            lend_result = result.fetch_all()
+            print(lend_result)
+            lend_result = str(lend_result[0][0])
+            lend_result_lst = lend_result.split(".")
+            lend_result = lend_result_lst[0]
+            return_result = lend_result_lst[1]
+            
+        else:
+            lend_result = "No result"
+
+    except library_db_func.mysqlx.errors.OperationalError as db_err:
+        lend_result = "BibLoaner error 1: DB error or you failed... Try again"
+        return_result = ""
+        print(db_err)
+    #print(str(result[0]))
+    
+    #print(res_lst)
+    
+    #last_str = str_lst[1]
+    return render_template('lend-result.html', lend_result=lend_result,return_result=return_result)
 
 @app.route("/return", methods=["POST", "GET"])
 def return_book():

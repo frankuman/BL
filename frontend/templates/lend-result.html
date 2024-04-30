@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+{% block scripts %}
+
+
+{% endblock %}
+<title>BibLoaner.</title>
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="sidebar">
+    <a href="/dashboard" class="logo">Loaner</a>
+    <ul>
+        <li  class="menu "><a href="/"><i class="fa fa-fw fa-home"></i>  Dashboard</a></li>
+        <li  class="menu active"> <a  href="/lend" class="menu"><i class="fa fa-fw fa-book"></i>  Lend book</a></li>
+        <li  class="menu "> <a  href="/loggers"> <i class="fa fa-fw fa-book"></i>  Return book</a></li>
+        <li  class="menu "> <a href="https://github.com/frankuman/BibLoaner."> <i class="fa fa-github"></i> GitHub</a></li>
+
+        <li  class="menu "> <a href="/logout"> <i class="fa fa-sign-out"></i>  Quit</a></li>
+    </ul>
+</div>
+
+<div class="lend">
+    <h class="textresult">{{lend_result}}</h>
+    <h class="returndate">{{return_result}}</h>
+</div>
+<div class="hbreturn">
+    <a href="/lend"><input type="submit" class="beegfail" value="&#8624;"></a>
+    <!-- <button type="button" class="beeg" onclick="submitForm()">&#8627;
+    </button> -->
+</div>
+
+{% endblock %}
+

@@ -129,7 +129,7 @@ def create_procedures(session):
         " IF flag = 1 THEN" \
 		" INSERT INTO Loans (bookID, memberID, loanLib, startDate, dueDate)" \
         " VALUES (bID, mID, lID, now, ADDDATE(now, 30));" \
-        " SET msg = CONCAT(msg, 'Book succesfully borrowed. Book to be returned by: ');" \
+        " SET msg = CONCAT(msg, 'Book succesfully borrowed.\n Book to be returned by: ');" \
         " SET msg = CONCAT(msg, CONVERT(ADDDATE(now, 30), CHAR));" \
         " UPDATE LibBooks SET nrOfCopies = nrOfCopies - 1 WHERE bookID = bID AND libraryID = lID;" \
         " END IF;" \

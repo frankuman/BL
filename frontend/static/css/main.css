@@ -296,3 +296,220 @@ body {
   width: 50px;
   height: 50px;
 }
+
+/*
+--- LEND.HTML ID input bar---
+*/
+.lend{
+  margin-left: 350px;
+  width: 900px;
+  height: 1080px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+.lend-bar-id {
+  padding-top: 320px;
+  padding-left: 250px;
+  width: 400px !important;
+  /* padding-top: 18%;
+  padding-left: 40%; */
+}
+.lend-bar-id .search-input,
+.lend-bar-id-member .search-input {
+  width: 400px !important;
+}
+.lend-bar-id-member {
+  margin-top: 30px;
+  padding-top: 40px;
+  padding-left: 250px;
+  width: 400px !important; 
+  /* padding-top: 4%;
+  padding-left: 40%; */
+}
+.title {
+  margin-left: 250px;
+  padding-top: 100px;
+  position: absolute;
+  /* padding-left: 44%;
+  padding-top: 4%; */
+  text-align: center; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+  font-size: 48px;
+  opacity: 100;
+  color: white; /* Default color for the logo */
+  text-decoration: none; /* Remove underline */
+  width: 400px;
+  font-weight: 700;
+  font-style: bold;
+  font-family: 'Montserrat';
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5); /* Add small text shadow */
+}
+.title::after {
+  content: "Book"; /* Add a dot after "Loaner" */
+  color: #4A83F6; /* Color for the dot */
+  margin-left: 0.1em; /* Adjust spacing between "Loaner" and the dot */
+}
+
+.title::before {
+  content: "Lend"; /* Combine "Bib" and "Loaner" into a single text */
+  color: #4A83F6; /* Color for "Bib" */
+}
+
+.title::before,
+.title::after {
+  display: inline; /* Display "Bib" and "Loaner" inline */
+}
+.idtitle {
+  position: absolute;
+  margin-top: 280px;
+  padding-left: 250px;
+  width: 400px;
+  /* padding-left: 52%;
+  padding-top: 15%; */
+  text-align: center; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+  font-size: 35px;
+}
+
+.membertitle {
+  position: absolute;
+  margin-top: 30px;
+  padding-left: 250px;
+  width: 400px;
+  /* padding-left: 50%;
+  padding-top: 1%; */
+  text-align: center; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+  font-size: 35px;
+}
+.librarytitle {
+  padding-top: 30px;
+  padding-left: 350px;
+  padding-left: 250px;
+  width: 400px;
+  position: absolute;
+  /* padding-left: 52%;
+  padding-top: 1%; */
+  text-align: center; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+  font-size: 35px;
+}
+.lend-box-library {
+  padding-left: 200px;
+  padding-top: 50px;
+  /* padding-left: 50%; */
+  position: absolute;
+  margin-top: 40px;
+  padding-left: 250px;
+  width: 400px;
+  /* padding-left: 44%;
+  padding-top: 4%; */
+  text-align: left; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+  font-size: 32px;
+  opacity: 100;
+  color: white; /* Default color for the logo */
+  text-decoration: none; /* Remove underline */
+}
+.radio-id {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #4A83F6;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-id:checked::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: #4A83F6;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+/* --- Huge button to enter */
+.hb {
+  color: #4A83F6;
+  position: absolute;
+  top: 0%;
+  margin-left: 1250px;
+  height: 1080px; /* Set height to auto to fit content */
+  width: 670px;
+  border: 4px solid #4A83F6; /* Add a border to see the boundaries */
+}
+.beeg{
+  height: 1080px; /* Set height to auto to fit content */
+  width: 670px;
+  font-size: 500px; /* Increase font size for better readability */
+  font-weight: bold; /* Add bold font weight for emphasis */
+  color: white; /* Set text color to white */
+  background-color: #4A83F6; /* Set background color */
+  border: none; /* Remove border */
+  border-radius: 0px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+  transition: background-color 0.3s ease; /* Add smooth transition for background color */
+
+}
+.hbreturn {
+  color: #f64a4a;
+  position: absolute;
+  top: 0%;
+  margin-left: 1250px;
+  height: 1080px; /* Set height to auto to fit content */
+  width: 670px;
+  border: 4px solid #f64a4a; /* Add a border to see the boundaries */
+
+   /* Add a border to see the boundaries */
+}
+.beegfail{
+  height: 1080px; /* Set height to auto to fit content */
+  width: 670px;
+  font-size: 500px; /* Increase font size for better readability */
+  font-weight: bold; /* Add bold font weight for emphasis */
+  color: white; /* Set text color to white */
+  background-color: #f64a4a; /* Set background color */
+  border: none; /* Remove border */
+  border-radius: 0px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+  transition: background-color 0.3s ease; /* Add smooth transition for background color */
+
+}
+.beegfail:hover {
+  background-color: rgb(198, 53, 53); /* Darken the background color on hover */
+}
+/* Add hover effect */
+.beeg:hover {
+  background-color: #3569c6; /* Darken the background color on hover */
+}
+
+.textresult{
+  position: absolute;
+  color: #4A83F6;
+  width: 400px;
+  padding-left: 100px;
+  
+  padding-top: 150px;
+  font-size: 45px;
+  font-weight: 600;
+}
+.returndate{
+  position: absolute;
+  color: #ECECF9;
+  width: 400px;
+  padding-left: 100px;
+  margin-top: 350px;
+  padding-top: 150px;
+  font-size: 45px;
+  font-weight: 600;
+}
