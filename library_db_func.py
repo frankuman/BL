@@ -94,8 +94,8 @@ def create_procedures(session):
     """
     lend_book = [
         #"DELIMITER &&",
-        "CREATE PROCEDURE `lendBook` (IN mID INT UNSIGNED, IN bID INT UNSIGNED, IN lID INT UNSIGNED, OUT msg TEXT)" \
-        "BEGIN" \
+        " CREATE PROCEDURE `lendBook` (IN mID INT UNSIGNED, IN bID INT UNSIGNED, IN lID INT UNSIGNED, OUT msg TEXT)" \
+        " BEGIN" \
     	" DECLARE x INT;" \
         " DECLARE datevar DATE;" \
 	    " DECLARE flag INT;" \
@@ -110,9 +110,11 @@ def create_procedures(session):
 		" SET flag = 0;" \
         " SET msg = CONCAT(msg, 'Book not available from this library.');" \
 	    " END IF;" \
-	    " SELECT loanID INTO x FROM Loans WHERE memberID = mID AND bookID = bID AND returnedDate IS NULL;" \
-	    " IF x IS NOT NULL THEN" \
+	    " SELECT EXISTS(SELECT * FROM Loans WHERE memberID = mID AND bookID = bID AND returnedDate IS NULL) INTO x;" \
+	    " IF x = 1 THEN" \
+        " SELECT loanID INTO x FROM Loans WHERE memberID = mID AND bookID = bID AND returnedDate IS NULL;" \
 		" UPDATE Loans SET retLib = lID, returnedDate = now WHERE loanID = x;" \
+        " SET msg = CONCAT(msg, 'Loan updated\n');" \
 	    " END IF;" \
         " SELECT dueDate INTO datevar FROM Loans WHERE loanID = x;" \
         " IF now > datevar THEN" \
@@ -134,18 +136,24 @@ def create_procedures(session):
         " UPDATE LibBooks SET nrOfCopies = nrOfCopies - 1 WHERE bookID = bID AND libraryID = lID;" \
         " END IF;" \
         " COMMIT;" \
-        "END;"#,
+        " END;"#,
         #"DELIMITER ;"
     ]
 
     return_book = [
         #"DELIMITER &&",
-        "CREATE PROCEDURE returnBook (IN loan INT UNSIGNED, IN lib INT UNSIGNED, OUT msg TEXT)" \
-        "BEGIN" \
+        " CREATE PROCEDURE returnBook (IN mID INT UNSIGNED, bID INT UNSIGNED, IN lib INT UNSIGNED, OUT msg TEXT)" \
+        " BEGIN" \
+        " DECLARE loan INT;" \
 	    " DECLARE now DATE;" \
         " DECLARE due DATE;" \
         " SET now = CURRENT_DATE();" \
 	    " SET msg = '';" \
+        " SELECT EXISTS(SELECT * FROM Loans WHERE memberID = mID AND bookID = bID AND returnedDate IS NULL) INTO loan;" \
+        " IF loan = 0 THEN" \
+        " SET msg = CONCAT(msg, 'Loan does not exist');" \
+        " ELSEIF loan = 1 THEN" \
+        " SELECT loanID INTO loan FROM Loans WHERE memberID = mID AND bookID = bID AND returnedDate IS NULL;" \
         " UPDATE Loans SET returnedDate = now, retLib = lib WHERE loanID = loan;" \
         " SET msg = CONCAT(msg, 'The book has been returned.');" \
         " SELECT dueDate INTO due FROM Loans WHERE loanID = loan;" \
@@ -153,7 +161,8 @@ def create_procedures(session):
 		" UPDATE Members SET debt = debt + 10 WHERE memberID = (SELECT memberID FROM Loans WHERE loanID = loan);" \
         " SET msg = CONCAT(msg, ' 10 added to debt for late return.');" \
         " END IF;" \
-        "END;"#,
+        " END IF;" \
+        " END;"#,
         #"DELIMITER ;"
     ]
 

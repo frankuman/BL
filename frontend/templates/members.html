@@ -25,11 +25,10 @@
 <div class="sidebar">
     <a href="/dashboard" class="logo">Loaner</a>
     <ul>
-        <li  class="menu active"><a href="/"><i class="fa fa-fw fa-home"></i>  Dashboard</a></li>
+        <li  class="menu "><a href="/"><i class="fa fa-fw fa-home"></i>  Dashboard</a></li>
         <li  class="menu "> <a  href="/lend" class="menu"><i class="fa fa-fw fa-book"></i>  Lend book</a></li>
         <li  class="menu "> <a  href="/return"> <i class="fa fa-fw fa-book"></i>  Return book</a></li>
-        <li  class="menu "> <a  href="/members"> <i class="fa fa-fw fa-book"></i>  See members</a></li>
-
+        <li  class="menu active"> <a  href="/members"> <i class="fa fa-fw fa-book"></i>  See members</a></li>
         <li  class="menu "> <a href="https://github.com/frankuman/BL"> <i class="fa fa-github"></i> GitHub</a></li>
 
         <li  class="menu "> <a href="/logout"> <i class="fa fa-sign-out"></i>  Quit</a></li>
@@ -37,35 +36,36 @@
 </div>
 
 <div class="book-list">
-    <form action="/" method="GET" class="search-form">
+    <form action="/members" method="GET" class="search-form">
         <div class="search-bar">
-            <input type="text" name="search" placeholder="Search Bookname or ID" class="search-input" autocomplete="on"/>
+            <input type="text" name="search" placeholder="Search MemberID" class="search-input" autocomplete="on"/>
             <button type="submit" class="searchbutton"> <i class="fas fa-search"></i></button>
         </div>
     </form>
     
     <table>
         <tr>
-            <td class="bookcolumn"><h2>Books</h2></td> <!-- Book title -->
+            <td class="fnamecolumn"><h2>Name</h2></td> <!-- Book title -->
             <td class="idcolumn"><h2>ID</h2></td><br /> <!-- Number of copies -->
 
-            <td class="columncopies"><h2>Copies</h2></td><br /> <!-- Number of copies -->
+            <td class="loancolumn"><h2>Loans</h2></td><br /> <!-- Number of copies -->
+            <td class="debtcolumn"><h2>Debt</h2></td><br /> <!-- Number of copies -->
+
         </tr>
     </table>
-    <ul>
-        {% for book in all_result %}
+    <ul class="membersinfo">
+        {% for member in members_list %}
         <li>
             <table>
-                
                 <tr>
-                    
-                    <td class="bookcolumn"><span class="book-title">{{ book[1] }}</span></td> <!-- Book title -->
-                    <td class="idcolumn"><span class="book-title">{{ book[0] }}</span></td> <!-- Book title -->
-
-                    <td class="columncopies"><span class="copies">{{ book[3] }}</span></td><br /> <!-- Number of copies -->
+                    <td class="fnamecolumn"><span class="book-title">{{ member[1] }}</span></td> <!-- author title -->
+                    <td class="idcolumn"><span class="book-title">{{ member[0] }}</span></td> <!-- id title -->
+                    <td class="loancolumn"><span class="copies">{{ member[3] }}</span></td><br /> <!-- Number of loans -->
+                    <td class="debtcolumn"><span class="debties">{{ member[4] }}</span></td><br /> <!-- Number of copies -->
+                    <td class="buttoncolumn"><div class="buttondiv"><a class="buttonthing" href="/memberinfo/{{ member[0] }}"><i class="fas fa-search"></i></div></td>
                 </tr>
                 <tr>
-                    <td><span class="author">{{ book[2] }}</span></td> <!-- Author -->
+                    <td><span class="lname">{{ member[2] }}</span></td> <!-- Author -->
                 </tr>
             </table>
         </li>

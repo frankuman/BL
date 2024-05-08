@@ -37,7 +37,31 @@ def db():
             session.sql(f"UPDATE LibBooks SET nrOfCopies = {x} WHERE libraryID = {y} AND bookID = {i};").execute()
     
     return session
-
+def reset_all():
+    
+    session = mysqlx.get_session({
+        "host": "localhost",
+        "port": 33060,
+        "user": "bibloaner", # enter your username here
+        "password": "dv1663" # enter your password here
+    })
+    try:
+        db_name = "myLibrary"
+        lf.create_all(session, db_name)
+        print(f"Database '{db_name}' created successfully.")
+        session.sql(f"USE {db_name}").execute()  # Switch to the newly created database
+        for i in range(50):
+            name1, name2, name3 = randomname.get_name(),randomname.get_name(),randomname.get_name()
+            session.sql(f"INSERT INTO `Books` (title, author, publisher, genre) VALUES ('{name1}', '{name2}', '{name3}', 'Sci-Fi');").execute()
+                
+    except Exception as create_err:
+        print(f"Error creating database '{db_name}': {create_err}")
+      
+    for i in range(1,157):
+        for y in range(3):
+            x = random.randint(1,9)
+            session.sql(f"UPDATE LibBooks SET nrOfCopies = {x} WHERE libraryID = {y} AND bookID = {i};").execute()
+    return session
 def functions():
     while True:
         print("\n\nWhat would you like to do [0-11]?\n")

@@ -492,7 +492,7 @@ body {
 .beeg:hover {
   background-color: #3569c6; /* Darken the background color on hover */
 }
-
+/* --- Return page ---*/
 .textresult{
   position: absolute;
   color: #4A83F6;
@@ -512,4 +512,120 @@ body {
   padding-top: 150px;
   font-size: 45px;
   font-weight: 600;
+}
+
+
+.titlereturn {
+  margin-left: 250px;
+  padding-top: 100px;
+  position: absolute;
+  /* padding-left: 44%;
+  padding-top: 4%; */
+  text-align: center; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+  font-size: 48px;
+  opacity: 100;
+  color: white; /* Default color for the logo */
+  text-decoration: none; /* Remove underline */
+  width: 400px;
+  font-weight: 700;
+  font-style: bold;
+  font-family: 'Montserrat';
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5); /* Add small text shadow */
+}
+.titlereturn::after {
+  content: "Book"; /* Add a dot after "Loaner" */
+  color: #f64a4a; /* Color for the dot */
+  margin-left: 0.1em; /* Adjust spacing between "Loaner" and the dot */
+}
+
+.titlereturn::before {
+  content: "Return"; /* Combine "Bib" and "Loaner" into a single text */
+  color: #f64a4a; /* Color for "Bib" */
+}
+
+/* --- members css --- */
+
+/* Styling for author name (white) */
+.book-list ul li .lname {
+  color: white; /* Set text color to white */
+  font-weight: 500; /* Increase font weight */
+}
+
+.book-list ul li .copies {
+  color: white;
+  padding-left: 0%;
+  
+}
+.book-list ul li .debties {
+  color: white;
+  padding-left: 50%;
+}
+.book-list ul li {
+  border-radius: 2px;
+  border: #ECECF9;
+  border-width: 5px;
+}
+.loancolumn {
+  width: 150px;
+  align-content: left;
+}
+.idcolumn {
+  width: 150px;
+}
+.fnamecolumn {
+  width: 150px;
+}
+.debtcolumn {
+  
+}
+.book-list .membersinfo {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  max-height: 800px; /* Set maximum height for the book list */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+.buttoncolumn {
+  margin: 0;
+  padding-left: 150px;
+  border: #ECECF9;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  
+}
+.buttondiv {
+  width: 20px;
+  height: 20px;
+  color: white;
+  border: #ECECF9;
+}
+.buttonthing{
+  text-decoration: none;
+  color: #4A83F6;
+}
+
+/* --- memberinfo --- */
+.datecolumn {
+
+  width: 150px;
+}
+.memberbookcolumn{
+  width: 200px;
+}
+.memberinfotable{
+
+  border: 2px rgba(198, 53, 53,0.2);
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  background-color: rgba(198, 53, 53,0.2);
+  }
+.book-list .loaninfo {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  max-height: 500px; /* Set maximum height for the book list */
+  overflow-y: auto; /* Enable vertical scroll */
 }
