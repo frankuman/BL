@@ -177,7 +177,7 @@ def member_info(member_id):
             sorting_version = 'title'
 
         if sorting_version == 'title':
-            loan_list.sort(key=lambda x: Levenshtein.distance(x[1], sort_by))  
+            loan_list.sort(key=lambda x: Levenshtein.distance(x[2], sort_by))  
         elif sorting_version == 'bookID':
             loan_list.sort(key=lambda x: abs(x[0] - sort_by))  
 
