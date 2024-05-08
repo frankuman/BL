@@ -1,4 +1,7 @@
 
+<p align="center">
+  <img src="bibloanerlogo.png" alt="Logo" width="500" height="275">
+</p>
 
 # BibLoaner - A Python Program for Managing Library Loans
 
