@@ -55,8 +55,6 @@ password = dv1663 (Password for the database)
 addrandombooks = True (Set to True to add 50 random books)
 ```
 
-This will render the content within a box when viewed in a Markdown viewer.
-
 
 ## Usage
 Once the BibLoaner application is running, use the provided graphical interface to manage library loans, member information, and library resources efficiently.
