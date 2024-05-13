@@ -110,11 +110,6 @@ def catch_return_form():
         lend_result = "BibLoaner error 1: DB error or you failed... Try again"
         return_result = ""
         print(db_err)
-    #print(str(result[0]))
-    
-    #print(res_lst)
-    
-    #last_str = str_lst[1]
     return render_template('return-result.html', lend_result=lend_result,return_result=return_result)
 
 @app.route("/members", methods=["POST", "GET"])
@@ -187,7 +182,6 @@ def set_debt(member_id):
     print(f"Debt for {member_id} set to {debt}")
     # Redirect to the member info page
     return redirect(url_for('member_info', member_id=member_id))
-
 
 @app.route("/addmember", methods=["POST", "GET"])
 def add_member():
