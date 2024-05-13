@@ -3,7 +3,7 @@
   <img src="bibloanerlogo.png" alt="Logo" width="500" height="275">
 </p>
 
-# BibLoaner - A Python Program for Managing Library Loans
+# BibLoaner - A WINDOWS Python Program for Managing Library Loans
 
 ## Project Overview
 BibLoaner is a Python program designed to facilitate library management tasks. Developed initially for a school project, it leverages Python Flask and MySQL to efficiently handle loaned books, member information, libraries, and more.
