@@ -3,7 +3,7 @@
   <img src="bibloanerlogo.png" alt="Logo" width="500" height="275">
 </p>
 
-# BibLoaner - A Python Program for Managing Library Loans
+# BibLoaner - A WINDOWS Python Program for Managing Library Loans
 
 ## Project Overview
 BibLoaner is a Python program designed to facilitate library management tasks. Developed initially for a school project, it leverages Python Flask and MySQL to efficiently handle loaned books, member information, libraries, and more.
@@ -46,6 +46,15 @@ BibLoaner is a Python program designed to facilitate library management tasks. D
 
 ## Configuration
 Modify settings in the `settings.ini` file to customize the BibLoaner application according to your specific requirements.
+[database]
+```ini
+host = localhost (This is the location of the database)
+port = 33060   (The connection port)
+user = bibloaner (Username for the database)
+password = dv1663 (Password for the database)
+addrandombooks = True (Set to True to add 50 random books)
+```
+
 
 ## Usage
 Once the BibLoaner application is running, use the provided graphical interface to manage library loans, member information, and library resources efficiently.
