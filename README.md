@@ -35,7 +35,7 @@ BibLoaner is a Python program designed to facilitate library management tasks. D
    ```
 
 ## Getting Started
-1. Navigate to the `/settings` directory and configure any specific settings as required.
+1. Navigate to the `settings.ini` file and configure any specific settings as required.
 2. Ensure your MySQL server is running on port `3306` with the host set to `localhost`.
 3. If not configured in the settings, use the default username `bibloaner` and password `dv1663`.
 4. Start the BibLoaner application by running the following command:
