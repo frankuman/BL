@@ -45,7 +45,7 @@ BibLoaner is a Python program designed to facilitate library management tasks. D
 5. Open your web browser and navigate to `127.0.0.1:5000` to access the BibLoaner interface.
 
 ## Configuration
-Modify settings in the `/settings` directory to customize the BibLoaner application according to your specific requirements.
+Modify settings in the `settings.ini` file to customize the BibLoaner application according to your specific requirements.
 
 ## Usage
 Once the BibLoaner application is running, use the provided graphical interface to manage library loans, member information, and library resources efficiently.
