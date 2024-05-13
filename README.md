@@ -46,6 +46,17 @@ BibLoaner is a Python program designed to facilitate library management tasks. D
 
 ## Configuration
 Modify settings in the `settings.ini` file to customize the BibLoaner application according to your specific requirements.
+[database]
+```ini
+host = localhost (This is the location of the database)
+port = 33060   (The connection port)
+user = bibloaner (Username for the database)
+password = dv1663 (Password for the database)
+addrandombooks = True (Set to True to add 50 random books)
+```
+
+This will render the content within a box when viewed in a Markdown viewer.
+
 
 ## Usage
 Once the BibLoaner application is running, use the provided graphical interface to manage library loans, member information, and library resources efficiently.
