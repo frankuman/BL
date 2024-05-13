@@ -29,6 +29,8 @@
         <li  class="menu "> <a  href="/lend" class="menu"><i class="fa fa-fw fa-book"></i>  Lend book</a></li>
         <li  class="menu "> <a  href="/return"> <i class="fa fa-fw fa-book"></i>  Return book</a></li>
         <li  class="menu active"> <a  href="/members"> <i class="fa fa-fw fa-book"></i>  See members</a></li>
+        <li  class="menu "> <a  href="/addmember"> <i class="fa fa-fw fa-book"></i>  Add member</a></li>
+
         <li  class="menu "> <a href="https://github.com/frankuman/BL"> <i class="fa fa-github"></i> GitHub</a></li>
         <li  class="menu "> <a href="/logout"> <i class="fa fa-sign-out"></i>  Quit</a></li>
     </ul>
@@ -100,8 +102,26 @@
     </ul>
 </div>
 
-<div>
-    <img class="libwallpaper" src="https://github.com/frankuman/BibLoaner./blob/main/funnypic.png?raw=true" alt="Library wallpaper">
+<div class="setdebt">
+    {% for member in members_list %}
+
+    <form action="/debt/{{ member[0] }}" method="post">
+        <div class="">
+            <h class="debttitle">Debt</h>
+            <div class="lend-bar-id-member-debt">
+                <input type="number" name="debt" placeholder="Set Debt Here" class="search-input" autocomplete="on"/>
+            </div>
+        </div>
+        
+        <div class="hb2">
+            <input type="submit" class="set" value="&#8627;">
+
+            <!-- <button type="button" class="beeg" onclick="submitForm()">&#8627;
+            </button> -->
+        </div>
+    </form>
+    {% endfor %}
+
 </div>
 
 {% endblock %}

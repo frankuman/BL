@@ -625,6 +625,7 @@ body {
 .memberinfotable{
 
   border: 2px rgba(198, 53, 53,0.2);
+
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
   background-color: rgba(198, 53, 53,0.2);
@@ -635,4 +636,97 @@ body {
   margin: 0;
   max-height: 500px; /* Set maximum height for the book list */
   overflow-y: auto; /* Enable vertical scroll */
+}
+/* --- debt --- */
+.hb2 {
+  
+  margin-top: 300px;
+  
+  color: #4A83F6;
+  position: absolute;
+  top: 0%;
+  margin-left: 200px;
+  height: 200px; /* Set height to auto to fit content */
+  width: 200px;
+  
+}
+.set {
+  height: 50px; /* Set height to auto to fit content */
+  width: 400px;
+  font-size: xx-large;
+  background-color: #4A83F6;
+  text-decoration: none;
+  border-radius: 16px;
+  border: none; /* Remove default border */
+  appearance: none; /* Remove default appearance */
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5); /* Add small text shadow */
+  
+
+}
+.debttitle {
+  position: absolute;
+  margin-top: 30px;
+  padding-left: 200px;
+  width: 400px;
+  /* padding-left: 50%;
+  padding-top: 1%; */
+  text-align: center; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+  font-size: 35px;
+}
+
+
+.lend-bar-id-member-debt .search-input {
+  width: 400px !important;
+}
+.lend-bar-id-member-debt {
+  margin-top: 30px;
+  padding-top: 100px;
+  padding-left: 200px;
+  width: 400px !important; 
+  /* padding-top: 4%;
+  padding-left: 40%; */
+}
+.setdebt {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);  
+  height: 1080px;
+  padding-top: 100px;
+  margin-left: 1220px;
+}
+/* --- addmmember --- */
+
+.mtitle {
+  margin-left: 285px;
+  padding-top: 100px;
+  position: absolute;
+  /* padding-left: 44%;
+  padding-top: 4%; */
+  text-align: center; /* Center align the heading */
+  color: #4A83F6; /* Set text color to #4A83F6 */
+  font-weight: 600; /* Increase font weight */
+  font-size: 48px;
+  opacity: 100;
+  color: white; /* Default color for the logo */
+  text-decoration: none; /* Remove underline */
+  width: 400px;
+  font-weight: 700;
+  font-style: bold;
+  font-family: 'Montserrat';
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5); /* Add small text shadow */
+}
+.mtitle::after {
+  content: "Member"; /* Add a dot after "Loaner" */
+  color: #4af6a6; /* Color for the dot */
+  margin-left: 0.1em; /* Adjust spacing between "Loaner" and the dot */
+}
+
+.mtitle::before {
+  content: "Add"; /* Combine "Bib" and "Loaner" into a single text */
+  color: #4af6a6; /* Color for "Bib" */
+}
+
+.mtitle::before,
+.mtitle::after {
+  display: inline; /* Display "Bib" and "Loaner" inline */
 }

@@ -26,7 +26,7 @@ def create_tables(session):
      "  `title` varchar(128) NOT NULL," \
      "  `author` varchar(64) NOT NULL," \
      "  `publisher` varchar(64) NOT NULL," \
-     "  `genre` varchar(16) NOT NULL," \
+     "  `genre` varchar(64) NOT NULL," \
      "  PRIMARY KEY (`bookID`)" \
      ") ENGINE=InnoDB",   
     "Members": # CREATE Members
@@ -34,9 +34,6 @@ def create_tables(session):
      "  `memberID` INT UNSIGNED AUTO_INCREMENT," \
      "  `firstName` varchar(64) NOT NULL," \
      "  `lastName` varchar(64) NOT NULL," \
-     "  `emailAddress` varchar(64) NOT NULL," \
-     "  `address` varchar(64) NOT NULL," \
-     "  `city` varchar(64) NOT NULL," \
      "  `debt` INT DEFAULT 0," \
      "  PRIMARY KEY (`memberID`)" \
      ") ENGINE=InnoDB",   
@@ -256,12 +253,12 @@ def insert_test_data(session):
         " ('So Long and Thanks for All the Fish', 'Douglas Adams', 'Pan Books', 'Sci-Fi')," \
         " ('Database Systems A Practical Approach to Design, Implementation, and Management', 'Thomas M. Connolly', 'Pearson Education Limited', 'Computer Science');",
         "Members": # INSERT INTO Members
-        "INSERT INTO `Members` (firstName, lastName, emailAddress, address, city) VALUES" \
-        " ('Theudoricus', 'Hendrickx','th@abc.com', 'Vernon End 6', 'Niemau')," \
-        " ('Majda', 'Braxton', 'mb@abc.com', 'Warwick Fields 15', 'Niemau')," \
-        " ('Emmalyn', 'Ó Proinntigh', 'ep@abc.com', 'Brambling Birches 11', 'East Skerna')," \
-        " ('Ampelio', 'Traylor', 'at@abc.com', 'Powell Cross 1', 'Ckenveyhedge')," \
-        " ('Wulfhram', 'Blanco', 'wb@abc.com', ' Kenyon Newydd 4', 'Ckenveyhedge');",
+        "INSERT INTO `Members` (firstName, lastName) VALUES" \
+        " ('Theudoricus', 'Hendrickx')," \
+        " ('Majda', 'Braxton')," \
+        " ('Emmalyn', 'Ó Proinntigh')," \
+        " ('Ampelio', 'Traylor')," \
+        " ('Wulfhram', 'Blanco');",
         "LibBooks1": # UPDATE LibBook copies
         "UPDATE `LibBooks` SET nrOfCopies = 5 WHERE libraryID = 1 AND bookID = 1;",
         "LibBooks2":

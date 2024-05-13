@@ -28,44 +28,26 @@
     <ul>
         <li  class="menu "><a href="/"><i class="fa fa-fw fa-home"></i>  Dashboard</a></li>
         <li  class="menu "> <a  href="/lend" class="menu"><i class="fa fa-fw fa-book"></i>  Lend book</a></li>
-        <li  class="menu active"> <a  href="/return"> <i class="fa fa-fw fa-book"></i>  Return book</a></li>
+        <li  class="menu "> <a  href="/return"> <i class="fa fa-fw fa-book"></i>  Return book</a></li>
         <li  class="menu "> <a  href="/members"> <i class="fa fa-fw fa-book"></i>  See members</a></li>
-        <li  class="menu "> <a  href="/addmember"> <i class="fa fa-fw fa-book"></i>  Add member</a></li>
+        <li  class="menu active"> <a  href="/addmember"> <i class="fa fa-fw fa-book"></i>  Add member</a></li>
 
         <li  class="menu "> <a href="https://github.com/frankuman/BL"> <i class="fa fa-github"></i> GitHub</a></li>
         <li  class="menu "> <a href="/logout"> <i class="fa fa-sign-out"></i>  Quit</a></li>
     </ul>
 </div>
-<form action="/return-result" method="get">
+<form action="/add-mem" method="get">
     <div class="lend">
-        <h class="titlereturn"> A </h>
-        <h class="idtitle">Book ID</h>
+        <h class="mtitle"> A </h>
+        <h class="idtitle">First Name</h>
         
             <div class="lend-bar-id">
-                <input type="number" name="search" placeholder="Input Book ID Here" class="search-input" autocomplete="on"/>
+                <input type="text" name="fname" placeholder="Input Name Here" class="search-input" autocomplete="on"/>
                 
             </div>
-            <h class="membertitle">Member ID</h>
+            <h class="membertitle">Last Name</h>
             <div class="lend-bar-id-member">
-                <input type="number" name="search" placeholder="Input Member ID Here" class="search-input" autocomplete="on"/>
-            </div>
-
-            <h class="librarytitle">Library</h>
-            <div class="lend-box-library">
-                <div>
-                    <input class="radio-id" type="radio" id="lib_1" name="lib_tick" value="1" checked />
-                    <label for="lib_1">Library of Alexandria</label>
-                </div>
-                
-                <div>
-                    <input class="radio-id" type="radio" id="lib_2" name="lib_tick" value="2" />
-                    <label for="lib_2">The House of Wisdom</label>
-                </div>
-                
-                <div>
-                    <input class="radio-id" type="radio" id="lib_3" name="lib_tick" value="3" />
-                    <label for="lib_3">The Citadel Library</label>
-                </div>
+                <input type="text" name="lname" placeholder="Input Surname Here" class="search-input" autocomplete="on"/>
             </div>
     </div>
     <div class="hb">

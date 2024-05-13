@@ -10,8 +10,8 @@ import library_db
 import Levenshtein
 import datetime
 app = Flask(__name__)
-# session = library_db.db()
 session = library_db.reset_all()
+
 @app.route("/", methods=["POST", "GET"])
 def start():
     result = session.sql("SELECT bookID, title, author FROM Books;").execute()
@@ -47,7 +47,6 @@ def start():
             list_with_copies.sort(key=lambda x: abs(x[0] - sort_by))  
 
     return render_template('index.html', all_result=list_with_copies)
-    #return render_template('index.html', all_result=list_with_copies)
 
 @app.route("/lend", methods=["POST", "GET"])
 def lend_book():
@@ -82,11 +81,6 @@ def catch_lend_form():
         lend_result = "BibLoaner error 1: DB error or you failed... Try again"
         return_result = ""
         print(db_err)
-    #print(str(result[0]))
-    
-    #print(res_lst)
-    
-    #last_str = str_lst[1]
     return render_template('lend-result.html', lend_result=lend_result,return_result=return_result)
 
 @app.route("/return-result", methods=["POST", "GET"])
@@ -183,6 +177,32 @@ def member_info(member_id):
 
     return render_template('memberinfo.html', members_list=members_list, loan_list=loan_list)
 
+@app.route("/debt/<int:member_id>", methods=["POST", "GET"])
+def set_debt(member_id):
+    # Retrieve form data
+    debt = request.form.get('debt')
+
+    # Update member's debt in the database
+    session.sql(f"UPDATE Members SET debt = {debt} WHERE memberID = {member_id}").execute()
+    print(f"Debt for {member_id} set to {debt}")
+    # Redirect to the member info page
+    return redirect(url_for('member_info', member_id=member_id))
+
+
+@app.route("/addmember", methods=["POST", "GET"])
+def add_member():
+    return render_template("addmember.html")
+@app.route("/add-mem", methods=["POST", "GET"])
+def submit_member():
+    fname = request.args.get('fname')
+    lname = request.args.get('lname')
+    print(fname, lname)
+    session.sql(f'INSERT INTO Members (firstName, lastName) VALUES ("{fname}", "{lname}");').execute()
+    
+    return redirect(f"/members?search={fname}")
+
 @app.route("/logout", methods=['POST', 'GET'])
-def evaluate():
-    quit()
+def logout():
+    import os
+    print("! Quitting !")
+    os._exit(os.EX_OK)
